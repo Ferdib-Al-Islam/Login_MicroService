@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-fixed-top">
+        <!-- ... -->
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="row">
+            <h1>{{ title }}</h1>
+        </div>
+
+        <div class="row">
+
+            <form class="form" method="post" role="form">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.password) }}
+
+                <input class="btn btn-primary" type="submit" value="Login">
+            </form>
+
+        </div>
+
+    </div>
+{% endblock %}
